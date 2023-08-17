@@ -1,0 +1,17 @@
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+  height: 350px;
+}
+
+.card-category {
+  align-items: center;
+  justify-content: center;
+}
+
+.card-link {
+  color: aliceblue;
+  text-decoration: none;
+  font-size: 20px;
+}
