@@ -1,6 +1,20 @@
 .btn-arounded {
   border-radius: 50px;
-  background-color: #991541;
+  background-color: $purple;
   color: aliceblue;
   margin-right: 5px;
+}
+
+.btn-delete {
+  background-color: $red;
+  border-radius: 50px;
+  color: aliceblue;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.btn-add-movie {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
 }

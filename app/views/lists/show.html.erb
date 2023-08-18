@@ -1,11 +1,32 @@
-<h1>List: <%= @list.name %></h1>
-<% @list.bookmarks.each do |bookmark| %>
-  <h1><%= bookmark.movie.title %></h1>
-  <%= image_tag(bookmark.movie.poster_url) %>
-  <p><%= bookmark.movie.overview %></p>
-  <p><%= bookmark.movie.rating %></p>
-  <p>Comment: <%= bookmark.comment %></p>
-<% end %>
+<div class="d-flex banner-movie" style="background-image: url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+  <h1><%= @list.name %></h1>
+  <div class="d-flex justify-content-end btn-add-movie">
+    <%= link_to "Add a movie to your list", new_list_bookmark_path(@list.id), class:"btn btn-primary mt-3" %>
+  </div>
+</div>
 
-<%= link_to "Add a Bookmark", new_list_bookmark_path(@list.id) %>
-<%= link_to "Go Back", lists_path %>
+
+
+<div class="d-flex list-movies-card gap-2">
+  <% @list.bookmarks.each do |bookmark| %>
+    <div class="card card-movie" style="width: 18rem;">
+      <%= image_tag(bookmark.movie.poster_url) %>
+
+      <div class="card-body">
+
+        <div class="mb-5">
+          <h5 class="card-title"><%= bookmark.movie.title %></h5>
+          <p class="card-text"><i class="fa-solid fa-comments" style="color: #991541"></i> <%= bookmark.comment %></p>
+          <p class="card-text overview"><%= bookmark.movie.overview %></p>
+        </div>
+
+        <div class="d-flex card-bottom-details justify-content-between align-items-end">
+          <p class="card-text rating"><i class="fa-solid fa-star" style="color: #ffdd00;"></i> <%= bookmark.movie.rating %></p>
+          <p><%= link_to "Delete", bookmark_path(bookmark.id), data: { turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"btn btn-delete" %></p>
+        </div>
+
+      </div>
+
+    </div>
+  <% end %>
+</div>
