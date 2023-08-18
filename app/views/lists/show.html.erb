@@ -1,11 +1,9 @@
-<div class="d-flex banner-movie" style="background-image: url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+<div class="d-flex banner-movie" style="background-image: url('<%= cl_image_path @list.photo.key, crop: :fill %>');">
   <h1><%= @list.name %></h1>
   <div class="d-flex justify-content-end btn-add-movie">
     <%= link_to "Add a movie to your list", new_list_bookmark_path(@list.id), class:"btn btn-primary mt-3" %>
   </div>
 </div>
-
-
 
 <div class="d-flex list-movies-card gap-2">
   <% @list.bookmarks.each do |bookmark| %>
